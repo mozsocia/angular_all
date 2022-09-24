@@ -41,7 +41,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   selector: 'app-test',
   template: `
     <h2>
-      {{"Hello " + name}}
+      {{"Hello " + pdata}}
     </h2>
     <button (click)=fireEvent()>Send Event</button>
   `,
@@ -51,7 +51,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export class TestComponent implements OnInit {
 
-  @Input('parentData') public name;
+  @Input('parentData') public pdata;
   @Output() public childEvent = new EventEmitter<string>();
 
   constructor() { }
