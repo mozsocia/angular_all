@@ -1,3 +1,20 @@
+setup
+```ts
+
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewComponent } from './new.component';
+
+@NgModule({
+  imports: [BrowserModule, HttpClientModule],
+  declarations: [AppComponent, NewComponent],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+**fetching data**<br>
+new.component.ts
 ```ts
 
 import { HttpClient } from '@angular/common/http';
