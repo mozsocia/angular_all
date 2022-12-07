@@ -49,6 +49,7 @@ export class TestComponent {
 ----------------------------------------
 
 ## event emit
+https://stackblitz.com/edit/angular-ivy-ubw2t3?file=src/app/app.component.ts
 #### parent 
 app.component.ts
 ```blade
