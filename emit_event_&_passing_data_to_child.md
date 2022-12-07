@@ -1,4 +1,49 @@
+-----------------------------------------
+-----------------------------------------
+## passing data to child
 
+app.component.ts
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `
+  <h1>THis is some component</h1>
+  <test [parentData]="namep"></test>
+  `,
+  styles: [``],
+})
+export class AppComponent {
+  public namep = 'Mozdalif';
+}
+
+
+```
+test.component.ts
+ ```ts
+ import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'test',
+  template: `<h1>child {{ pdata}} </h1>
+  `,
+  styles: [``],
+})
+export class TestComponent {
+  @Input('parentData') pdata;
+}
+
+ 
+ ````
+ 
+
+
+
+-------------------------------------------
+----------------------------------------
+
+## event emit
 #### parent 
 app.component.html
 ```blade
