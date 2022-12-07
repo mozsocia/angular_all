@@ -3,15 +3,16 @@
 ## passing data to child
 
 app.component.ts
+```blade 
+<h1>THis is some component</h1>
+<test [parentData]="namep"></test>
+```
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `
-  <h1>THis is some component</h1>
-  <test [parentData]="namep"></test>
-  `,
+  template: `above block`,
   styles: [``],
 })
 export class AppComponent {
@@ -20,14 +21,18 @@ export class AppComponent {
 
 
 ```
+<br>
+
 test.component.ts
+```blade
+<h1>child {{ pdata}} </h1> 
+ ```
  ```ts
  import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'test',
-  template: `<h1>child {{ pdata}} </h1>
-  `,
+  template: `above block `,
   styles: [``],
 })
 export class TestComponent {
@@ -45,69 +50,54 @@ export class TestComponent {
 
 ## event emit
 #### parent 
-app.component.html
+app.component.ts
 ```blade
-<div style="text-align:center">
-  <h1>
-    {{message}}
-  </h1>
-</div>
-<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
+
+<h1> {{message}} </h1>
+<test (childEvent)="fireFn($event)" ></test>
 
 ```
-
-
-app.component.ts
 
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-app',
+  template: `above block`,
+  styles: [``],
 })
 export class AppComponent {
-  title = 'app';
-  public name = "Vishwas";
-  public message = "";
+  public message = '';
 
+  fireFn(para) {
+    console.log(para);
+  }
 }
+
 ```
 #### child
 
 
-
-
+test.component.ts
+```blade
+<h2> Hello  </h2>
+<button (click)=fireEvent()>Send Event</button>
+```
 ```ts
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-test',
-  template: `
-    <h2>
-      {{"Hello " + pdata}}
-    </h2>
-    <button (click)=fireEvent()>Send Event</button>
-  `,
-  styles: []
+  selector: 'test',
+  template: `above block`,
+  styles: [``],
 })
-
-
-export class TestComponent implements OnInit {
-
-  @Input('parentData') public pdata;
+export class TestComponent {
   @Output() public childEvent = new EventEmitter<string>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  fireEvent(){
+  fireEvent() {
     this.childEvent.emit('Hey Codevolution');
   }
-
 }
+
 ```
 
