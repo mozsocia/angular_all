@@ -5,7 +5,7 @@
 app.component.ts
 ```blade 
 <h1>THis is some component</h1>
-<test [parentData]="namep"></test>
+<test parentData="myname"></test>
 ```
 ```ts
 import { Component } from '@angular/core';
