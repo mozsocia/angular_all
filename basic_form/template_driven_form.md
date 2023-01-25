@@ -1,3 +1,4 @@
+https://stackblitz.com/edit/angular-ivy-pubwip?file=src/app/app.component.ts
 ```blade
 <div class="container">
   <h2>User Data</h2>
